@@ -67,7 +67,15 @@ export default class calculadoraControle {
         this.tela.conteudo = numero.toString();
     }
     adicionarOperador(operador) {
-        this.adicionarOperacao(operador);
+        if (isNaN(Number(this.op.ultimaPosicao))) {
+            this.op.ultimaPosicao = operador;
+        }
+        else {
+            if (!this.op.length) {
+                this.adicionarOperacao("0");
+            }
+            this.adicionarOperacao(operador);
+        }
     }
 }
 //# sourceMappingURL=CalculadoraControle.js.map
